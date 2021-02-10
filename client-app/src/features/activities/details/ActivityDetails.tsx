@@ -21,9 +21,10 @@ history}) =>{
 
     useEffect(() => {
     loadActivity(match!.params.id)
-    },[loadActivity,match]);
+    },[loadActivity,match,history]);
 
-    if(loadingInitial || !activity) return <LoadingComponent content='Loading activity...'/>
+    if(loadingInitial) return <LoadingComponent content='Loading activity...'/>
+    if(!activity) return <h2>Activity not found</h2>
   return (
       <Grid>
             <Grid.Column width={10}>
